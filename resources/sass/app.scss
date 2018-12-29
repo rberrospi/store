@@ -1,0 +1,22 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,100,300,700,900');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+// Toastr
+@import '~toastr/toastr';
+@import 'common';
+
+@import 'layouts/nav';
+@import 'layouts/footer';
+
+@import 'pages/login';
+@import 'pages/home';
+@import 'pages/cart';
+@import 'pages/product';
+
+@import 'components/banner';

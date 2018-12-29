@@ -1,0 +1,46 @@
+.user-form{
+  max-width: 650px;
+  margin: 20px auto 40px;
+  border: 1px solid #efefef;
+  padding: 20px 30px;
+
+  .form-control{
+    border-radius: 0px;
+    color: #000;
+    font-weight: 400;
+    padding: 10px;
+    height: auto;
+  }
+
+
+  .text-muted{
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 300;
+    color: #999;
+    line-height: 1.6;
+  }
+
+  .form-actions {
+    .btn {
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 30px;
+      border: none !important;
+      font-weight: 300;
+
+      &.btn-red {
+        background-color: #e42555;
+      }
+
+      &.btn-blue{
+        background-color: #39529c;
+      }
+
+      &:hover{
+        background-color: #333333;
+      }
+    }
+  }
+
+}
