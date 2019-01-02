@@ -3234,16 +3234,147 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'home',
   data: function data() {
     return {
-      categories: []
+      categories: [],
+      products: []
     };
   },
   methods: {},
+  filters: {
+    amount: function amount(value) {
+      return parseFloat(value).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+  },
   mounted: function mounted() {
     var vm = this;
+    axios.get('/api/products').then(function (result) {
+      vm.products = result.data.products;
+    }, function (error) {});
     axios.get('/api/categories').then(function (result) {
       vm.categories = result.data.categories;
     }, function (error) {});
@@ -59145,187 +59276,407 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "home-page" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _vm._m(2),
+    _vm._v(" "),
+    _vm._m(3),
+    _vm._v(" "),
+    _c("div", { staticClass: "sections" }, [
+      _c("h2", { staticClass: "text-center" }, [
+        _vm._v("Productos más buscados")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "container" }, [
+        _c(
+          "div",
+          { staticClass: "row" },
+          _vm._l(_vm.products, function(product) {
+            return _c("div", { staticClass: "col-md-3" }, [
+              _c("div", { staticClass: "product-box" }, [
+                _c("div", { staticClass: "product-image" }, [
+                  _c("img", {
+                    directives: [
+                      {
+                        name: "holder",
+                        rawName: "v-holder",
+                        value: { img: "255x255" },
+                        expression: "{img:'255x255'}"
+                      }
+                    ],
+                    staticClass: "img-fluid"
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "product-meta-container" }, [
+                  _c("div", { staticClass: "product-meta text-center" }, [
+                    _c("div", { staticClass: "product-title" }, [
+                      _c(
+                        "a",
+                        { attrs: { href: "/products/" + product.slug } },
+                        [_vm._v(_vm._s(product.name))]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product-price" }, [
+                      product.discount
+                        ? _c("span", [
+                            _vm._v(
+                              "S/." + _vm._s(_vm._f("amount")(product.discount))
+                            )
+                          ])
+                        : _c("span", [
+                            _vm._v(
+                              "S/." + _vm._s(_vm._f("amount")(product.price))
+                            )
+                          ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(4, true)
+                ])
+              ])
+            ])
+          }),
+          0
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "home-page" }, [
-      _c(
-        "nav",
-        { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
-        [
-          _c("div", { staticClass: "container" }, [
-            _c("ul", { staticClass: "navbar-nav" }, [
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("Categoría 1")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("Categoría 2")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("Categoría 3")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("Categoría 4")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("Categoría 5")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("Categoría 6")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("Categoría 7")
-                ])
+    return _c(
+      "nav",
+      { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
+      [
+        _c("div", { staticClass: "container" }, [
+          _c("ul", { staticClass: "navbar-nav" }, [
+            _c("li", { staticClass: "nav-item" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                _vm._v("Categoría 1")
               ])
-            ])
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "banner" }, [
-        _c("div", { staticClass: "banner-slide" }, [
-          _c("div", { staticClass: "slide-image" }, [
-            _c("img", { attrs: { src: "/images/slide2.jpg", alt: "slide2" } })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "slide-content-wrap" }, [
-            _c("div", { staticClass: "container slide-wrap" }, [
-              _c("div", { staticClass: "slide-content " }, [
-                _c("div", { staticClass: "slide-content-main" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "pre-heading-text",
-                      attrs: {
-                        "data-animation-in": "bounceInDown",
-                        "data-animation-out": "animate-out slideOutUp"
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                Recreate your style\n              "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "heading-text" }, [
-                    _c("div", [_vm._v("Get 50% discount off")]),
-                    _vm._v(" "),
-                    _c("div", [_vm._v("summer formal wears")])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "slide-content-body" }, [
-                    _c("p", [
-                      _vm._v(
-                        "Create your unique niche through creative brand concepts"
-                      )
-                    ])
-                  ])
-                ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                _vm._v("Categoría 2")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                _vm._v("Categoría 3")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                _vm._v("Categoría 4")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                _vm._v("Categoría 5")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                _vm._v("Categoría 6")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                _vm._v("Categoría 7")
               ])
             ])
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "sections" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-4" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-12" }, [
-                  _c("div", { staticClass: "category-box" }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("h3", [_vm._v("Nuevos Productos")])
-                    ])
-                  ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "banner" }, [
+      _c("div", { staticClass: "banner-slide" }, [
+        _c("div", { staticClass: "slide-image" }, [
+          _c("img", { attrs: { src: "/images/slide2.jpg", alt: "slide2" } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "slide-content-wrap" }, [
+          _c("div", { staticClass: "container slide-wrap" }, [
+            _c("div", { staticClass: "slide-content " }, [
+              _c("div", { staticClass: "slide-content-main" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "pre-heading-text",
+                    attrs: {
+                      "data-animation-in": "bounceInDown",
+                      "data-animation-out": "animate-out slideOutUp"
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                Recreate your style\n              "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "heading-text" }, [
+                  _c("div", [_vm._v("Get 50% discount off")]),
+                  _vm._v(" "),
+                  _c("div", [_vm._v("summer formal wears")])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-12" }, [
-                  _c("div", { staticClass: "category-box" }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("h3", [_vm._v("Productos Recomendados")])
-                    ])
+                _c("div", { staticClass: "slide-content-body" }, [
+                  _c("p", [
+                    _vm._v(
+                      "Create your unique niche through creative brand concepts"
+                    )
                   ])
                 ])
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
-              _c("div", { staticClass: "category-box x2" }, [
-                _c("a", { attrs: { href: "#" } }, [
-                  _c("h3", [_vm._v("Lo más vendido")])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-12" }, [
-                  _c("div", { staticClass: "category-box" }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("h3", [_vm._v("Video Juegos")])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-12" }, [
-                  _c("div", { staticClass: "category-box" }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("h3", [_vm._v("Accesorio Celulares")])
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "sections" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("h2", { staticClass: "text-center" }, [
-            _vm._v("Detalle de envio y comisiones.")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "description" }, [
-            _c("p", [
-              _vm._v(
-                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
-              )
             ])
           ])
         ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "sections" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-4" }, [
+            _c("div", { staticClass: "category-box" }, [
+              _c("div", { staticClass: "category-container" }, [
+                _c("div", { staticClass: "category-image" }, [
+                  _c("img", { attrs: { src: "/images/category-1.jpg" } })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "category-meta" }, [
+                  _c("div", { staticClass: "category-meta-content left" }, [
+                    _c("div", { staticClass: "category-meta-text" }, [
+                      _c("h3", { staticClass: "category-title clearfix" }, [
+                        _c("span", [_vm._v("Nuevos Productos")])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "category-link mt-2" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Compra Ahora >>")
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "category-box" }, [
+              _c("div", { staticClass: "category-container" }, [
+                _c("div", { staticClass: "category-image" }, [
+                  _c("img", { attrs: { src: "/images/category-3.jpg" } })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "category-meta" }, [
+                  _c(
+                    "div",
+                    { staticClass: "category-meta-content center text-center" },
+                    [
+                      _c("div", { staticClass: "category-meta-text" }, [
+                        _c("h3", { staticClass: "category-title clearfix" }, [
+                          _c("span", [_vm._v("Productos Recomendados")])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "category-link mt-2" }, [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("Compra Ahora >>")
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-4" }, [
+            _c("div", { staticClass: "category-box" }, [
+              _c("div", { staticClass: "category-container" }, [
+                _c("div", { staticClass: "category-image" }, [
+                  _c("img", { attrs: { src: "/images/category-2.jpg" } })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "category-meta" }, [
+                  _c(
+                    "div",
+                    { staticClass: "category-meta-content center text-center" },
+                    [
+                      _c("div", { staticClass: "category-meta-text" }, [
+                        _c("h3", { staticClass: "category-title clearfix" }, [
+                          _c("span", [_vm._v("Lo más vendido")])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "category-link mt-2" }, [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("Compra Ahora >>")
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-4" }, [
+            _c("div", { staticClass: "category-box" }, [
+              _c("div", { staticClass: "category-container" }, [
+                _c("div", { staticClass: "category-image" }, [
+                  _c("img", { attrs: { src: "/images/category-4.jpg" } })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "category-meta" }, [
+                  _c(
+                    "div",
+                    { staticClass: "category-meta-content center text-center" },
+                    [
+                      _c("div", { staticClass: "category-meta-text" }, [
+                        _c("h3", { staticClass: "category-title clearfix" }, [
+                          _c("span", [_vm._v("Video Juegos")])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "category-link mt-2" }, [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("Compra Ahora >>")
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "category-box" }, [
+              _c("div", { staticClass: "category-container" }, [
+                _c("div", { staticClass: "category-image" }, [
+                  _c("img", { attrs: { src: "/images/category-5.jpg" } })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "category-meta" }, [
+                  _c(
+                    "div",
+                    { staticClass: "category-meta-content center text-center" },
+                    [
+                      _c("div", { staticClass: "category-meta-text" }, [
+                        _c("h3", { staticClass: "category-title clearfix" }, [
+                          _c("span", [_vm._v("Accesorio Celulares")])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "category-link mt-2" }, [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("Compra Ahora >>")
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "sections section-bg",
+        staticStyle: { "background-image": "url('/images/info.jpg')" }
+      },
+      [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "icon-box-items" }, [
+                _c("div", { staticClass: "icon-box-item" }, [
+                  _c("div", { staticClass: "box-icon" }, [
+                    _c("i", { staticClass: "ion-android-plane" })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "box-desc" }, [
+                    _c("h4", [_vm._v("Free Shipping Order")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("Improve $500 enquire own beloved")])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "icon-box-items" }, [
+                _c("div", { staticClass: "icon-box-item" }, [
+                  _c("div", { staticClass: "box-icon" }, [
+                    _c("i", { staticClass: "ion-clock" })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "box-desc" }, [
+                    _c("h4", [_vm._v("30 Days Returns Policy")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("Welcome own beloved enquire")])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "icon-box-items" }, [
+                _c("div", { staticClass: "icon-box-item" }, [
+                  _c("div", { staticClass: "box-icon" }, [
+                    _c("i", { staticClass: "ion-android-contacts" })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "box-desc" }, [
+                    _c("h4", [_vm._v("24/7 Customer Support")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("Enquire welcome beloved matters")])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product-add-cart" }, [
+      _c("button", { staticClass: "btn btn-red" }, [_vm._v("Add to cart")])
     ])
   }
 ]
@@ -78106,6 +78457,13 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       roles: 'admin'
     }
   }, {
+    path: '/admin/products/categories',
+    name: 'adminCategories',
+    component: _admin_categories_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
+    meta: {
+      roles: 'admin'
+    }
+  }, {
     path: '/admin/products/:id',
     name: 'adminProductsEdit',
     component: _admin_editor_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
@@ -78116,13 +78474,6 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/admin/new-product',
     name: 'editor',
     component: _admin_editor_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
-    meta: {
-      roles: 'admin'
-    }
-  }, {
-    path: '/admin/products/categories',
-    name: 'adminCategories',
-    component: _admin_categories_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
     meta: {
       roles: 'admin'
     }
