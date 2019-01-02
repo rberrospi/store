@@ -3356,6 +3356,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'home',
   data: function data() {
@@ -59308,17 +59309,17 @@ var render = function() {
                       }
                     ],
                     staticClass: "img-fluid"
-                  })
+                  }),
+                  _vm._v(" "),
+                  _c("a", { attrs: { href: "/product/" + product.slug } })
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "product-meta-container" }, [
                   _c("div", { staticClass: "product-meta text-center" }, [
                     _c("div", { staticClass: "product-title" }, [
-                      _c(
-                        "a",
-                        { attrs: { href: "/products/" + product.slug } },
-                        [_vm._v(_vm._s(product.name))]
-                      )
+                      _c("a", { attrs: { href: "/product/" + product.slug } }, [
+                        _vm._v(_vm._s(product.name))
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "product-price" }, [

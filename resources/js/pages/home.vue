@@ -219,11 +219,12 @@
             <div class="product-box">
               <div class="product-image">
                 <img v-holder="{img:'255x255'}" class="img-fluid">
+                <a :href="'/product/'+product.slug"></a>
               </div>
               <div class="product-meta-container">
                 <div class="product-meta text-center">
                   <div class="product-title">
-                    <a :href="'/products/'+product.slug">{{ product.name }}</a>
+                    <a :href="'/product/'+product.slug">{{ product.name }}</a>
                   </div>
                   <div class="product-price">
                     <span v-if="product.discount">S/.{{ product.discount | amount }}</span>

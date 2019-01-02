@@ -9946,6 +9946,18 @@ footer .block ul li a {
   text-align: left;
 }
 
+.product-box .product-image {
+  position: relative;
+}
+
+.product-box .product-image a {
+  display: block;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+
 .product-box .product-meta-container {
   overflow: hidden;
   position: relative;
