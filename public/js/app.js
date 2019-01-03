@@ -58739,7 +58739,7 @@ var render = function() {
               [
                 _c("img", {
                   staticClass: "img-fluid",
-                  attrs: { src: "/logo.svg" }
+                  attrs: { src: "/logo.png" }
                 })
               ]
             ),
@@ -59412,7 +59412,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "banner" }, [
       _c("div", { staticClass: "banner-slide" }, [
         _c("div", { staticClass: "slide-image" }, [
-          _c("img", { attrs: { src: "/images/slide2.jpg", alt: "slide2" } })
+          _c("img", { attrs: { src: "/images/banner.png", alt: "slide2" } })
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "slide-content-wrap" }, [
@@ -59429,16 +59429,16 @@ var staticRenderFns = [
                     }
                   },
                   [
-                    _vm._v(
-                      "\n                Recreate your style\n              "
-                    )
+                    _vm._v("\n                CREA, DISEÑA Y ESTAMPA "),
+                    _c("br"),
+                    _c("span", [_vm._v("Innova y personaliza tus polos")])
                   ]
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "heading-text" }, [
-                  _c("div", [_vm._v("Get 50% discount off")]),
+                  _c("div", [_vm._v("Lorem Ipsum is simply ")]),
                   _vm._v(" "),
-                  _c("div", [_vm._v("summer formal wears")])
+                  _c("div", [_vm._v("dummy text of the printing")])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "slide-content-body" }, [

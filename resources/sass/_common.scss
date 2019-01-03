@@ -4,7 +4,7 @@ a:hover{
 }
 
 .wrapper{
-  max-width: 1200px;
+  /*max-width: 1200px;*/
   margin: 0 auto;
   background: #fff;
 }
@@ -18,7 +18,11 @@ a:hover{
   }
 }
 
-
+.navbar-brand{
+  img{
+    width: 210px;
+  }
+}
 .img-table{
   max-width: 75px;
 }

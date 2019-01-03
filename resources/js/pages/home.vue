@@ -30,18 +30,18 @@
     <div class="banner">
       <div class="banner-slide">
         <div class="slide-image">
-          <img src="/images/slide2.jpg" alt="slide2"/>
+          <img src="/images/banner.png" alt="slide2"/>
         </div>
         <div class="slide-content-wrap">
           <div class="container slide-wrap">
             <div class="slide-content ">
               <div class="slide-content-main">
                 <div class="pre-heading-text" data-animation-in="bounceInDown" data-animation-out="animate-out slideOutUp">
-                  Recreate your style
+                  CREA, DISEÑA Y ESTAMPA <br><span>Innova y personaliza tus polos</span>
                 </div>
                 <div class="heading-text">
-                  <div>Get 50% discount off</div>
-                  <div>summer formal wears</div>
+                  <div>Lorem Ipsum is simply </div>
+                  <div>dummy text of the printing</div>
                 </div>
                 <div class="slide-content-body">
                   <p>Create your unique niche through creative brand concepts</p>
