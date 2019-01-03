@@ -9772,8 +9772,21 @@ a:hover {
   font-weight: 300;
 }
 
+.image-cart {
+  max-width: 28px;
+  max-height: 28px;
+}
+
 .img-table {
   max-width: 75px;
+}
+
+.img-table2 {
+  max-height: 150px;
+}
+
+.img-table3 {
+  max-height: 100px;
 }
 
 .table td {

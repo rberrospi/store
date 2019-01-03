@@ -39,6 +39,12 @@ class CategoriesController extends Controller{
     return ['error' => $error];
   }
 
+  public function getBySlug($slug, Request $request) {
+    $category = Category::whereSlug($slug)->first();
+    return ['category' => $category];
+  }
+
+
   public function update(Category $category, Request $request) {
 
     $error = FALSE;

@@ -19,9 +19,10 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="item in cart">
+            <tr v-for="item,index in cart">
               <td>
-                <img v-holder="{img:'100x100'}" class="rounded">
+                <img v-if="item.product.image" :src="'/storage/'+item.product.image" class="rounded img-table3">
+                <img v-else v-holder="{img:'100x100'}" class="rounded">
               </td>
               <td>{{ item.product.name }}</td>
               <td>S/. {{ item.product.price | amount }}</td>
@@ -74,6 +75,10 @@
       },
       remove(index){
         this.cart.splice(index,1);
+        var cart = this.cart;
+        this.$ls.set('cart',JSON.stringify(cart));
+        this.$emit('cart',cart);
+        toastr.success('Your cart has been updated!', 'OK!');
       }
     },
     computed:{

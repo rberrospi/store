@@ -18,6 +18,7 @@ Route::post('users','UserController@store');
 Route::resource('stores','StoreController')->only(['store']);
 Route::get('products/{product}','ProductController@show');
 Route::get('products-slug/{slug}','ProductController@getBySlug');
+Route::get('category-slug/{slug}','CategoriesController@getBySlug');
 
 Route::group(['middleware' => 'auth:api'], function(){
   Route::get('user', 'UserController@get');

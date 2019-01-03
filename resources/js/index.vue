@@ -79,7 +79,8 @@
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#" v-for="item in cart">
                   <span class="item-picgture">
-                    <img v-holder="{img:'28x28', text: 'P'}" class="rounded">
+                    <img v-if="item.product.image" :src="'/storage/'+item.product.image" class="rounded image-cart">
+                    <img v-else v-holder="{img:'28x28', text: 'P'}" class="rounded">
                   </span>
                   <span class="item-name">{{ item.product.name }}</span>
                   <span class="item-qty">{{ item.qty }}x</span>

@@ -218,7 +218,7 @@
           <div class="col-md-3" v-for="product in products">
             <div class="product-box">
               <div class="product-image">
-                <img v-holder="{img:'255x255'}" class="img-fluid">
+                <img :src="'/storage/'+product.image" class="img-fluid">
                 <a :href="'/product/'+product.slug"></a>
               </div>
               <div class="product-meta-container">
@@ -232,7 +232,7 @@
                   </div>
                 </div>
                 <div class="product-add-cart">
-                  <button class="btn btn-red">Add to cart</button>
+                  <button class="btn btn-red" @click.prevent="addToCart(product)">Add to cart</button>
                 </div>
               </div>
 
@@ -253,7 +253,33 @@
       }
     },
     methods:{
+      addToCart(product){
+        var vm = this;
+        var cart = this.$ls.get('cart');
+        if(cart) {
+          cart = JSON.parse(cart);
+          var key = cart.findIndex((item) => item.product.id == product.id );
 
+          if (key > -1) {
+            cart[key].qty += 1;
+          } else {
+            cart.push({
+              product : product,
+              qty: 1
+            });
+          }
+        } else {
+          cart = [];
+          cart.push({
+            product : product,
+            qty: 1
+          });
+        }
+
+        this.$ls.set('cart',JSON.stringify(cart));
+        this.$emit('cart',cart);
+        toastr.success('The product has been addded to your cart!', 'OK!');
+      },
     },
     filters:{
       amount(value){

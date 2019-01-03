@@ -6,6 +6,7 @@ import singup from './pages/singup.vue'
 import join from './pages/join.vue'
 import cart from './pages/cart.vue'
 import product from './pages/product.vue'
+import category from './pages/category.vue'
 
 
 import adminUsers from './admin/users.vue'
@@ -50,6 +51,11 @@ const router = new Router ({
       path: '/product/:slug',
       name: 'product',
       component: product
+    },
+    {
+      path: '/categories/:slug',
+      name: 'category',
+      component: category
     },
     {
       path: '/admin/users',
