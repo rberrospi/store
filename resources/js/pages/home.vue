@@ -56,68 +56,191 @@
     <div class="sections">
       <div class="container">
         <div class="row">
-
           <div class="col-md-4">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="category-box">
-                  <a href="#">
-                    <h3>Nuevos Productos</h3>
-                  </a>
+            <div class="category-box">
+              <div class="category-container">
+              <div class="category-image">
+                <img src="/images/category-1.jpg">
+              </div>
+              <div class="category-meta">
+                <div class="category-meta-content left">
+                  <div class="category-meta-text">
+                    <h3 class="category-title clearfix">
+                      <span>Nuevos Productos</span>
+                    </h3>
+                    <div class="category-link mt-2">
+                      <a href="#">Compra Ahora >></a>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-12">
-                <div class="category-box">
-                  <a href="#">
-                    <h3>Productos Recomendados</h3>
-                  </a>
+              </div>
+            </div>
+            <div class="category-box">
+              <div class="category-container">
+                <div class="category-image">
+                  <img src="/images/category-3.jpg">
+                </div>
+                <div class="category-meta">
+                  <div class="category-meta-content center text-center">
+                    <div class="category-meta-text">
+                      <h3 class="category-title clearfix">
+                        <span>Productos Recomendados</span>
+                      </h3>
+                      <div class="category-link mt-2">
+                        <a href="#">Compra Ahora >></a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="category-box x2">
-              <a href="#">
-                <h3>Lo más vendido</h3>
-              </a>
+            <div class="category-box">
+              <div class="category-container">
+              <div class="category-image">
+                <img src="/images/category-2.jpg">
+              </div>
+              <div class="category-meta">
+                <div class="category-meta-content center text-center">
+                  <div class="category-meta-text">
+                    <h3 class="category-title clearfix">
+                      <span>Lo más vendido</span>
+                    </h3>
+                    <div class="category-link mt-2">
+                      <a href="#">Compra Ahora >></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="category-box">
-                  <a href="#">
-                    <h3>Video Juegos</h3>
-                  </a>
+            <div class="category-box">
+              <div class="category-container">
+                <div class="category-image">
+                  <img src="/images/category-4.jpg">
+                </div>
+                <div class="category-meta">
+                  <div class="category-meta-content center text-center">
+                    <div class="category-meta-text">
+                      <h3 class="category-title clearfix">
+                        <span>Video Juegos</span>
+                      </h3>
+                      <div class="category-link mt-2">
+                        <a href="#">Compra Ahora >></a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-12">
-                <div class="category-box">
-                  <a href="#">
-                    <h3>Accesorio Celulares</h3>
-                  </a>
+            </div>
+            <div class="category-box">
+              <div class="category-container">
+                <div class="category-image">
+                  <img src="/images/category-5.jpg">
+                </div>
+                <div class="category-meta">
+                  <div class="category-meta-content center text-center">
+                    <div class="category-meta-text">
+                      <h3 class="category-title clearfix">
+                        <span>Accesorio Celulares</span>
+                      </h3>
+                      <div class="category-link mt-2">
+                        <a href="#">Compra Ahora >></a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
+      </div>
+    </div>
 
+
+    <div class="sections section-bg" style="background-image:url('/images/info.jpg')">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="icon-box-items">
+              <div class="icon-box-item">
+                <div class="box-icon">
+                  <i class="ion-android-plane"></i>
+                </div>
+                <div class="box-desc">
+                  <h4>Free Shipping Order</h4>
+                  <p>Improve $500 enquire own beloved</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="icon-box-items">
+              <div class="icon-box-item">
+                <div class="box-icon">
+                  <i class="ion-clock"></i>
+                </div>
+                <div class="box-desc">
+                  <h4>30 Days Returns Policy</h4>
+                  <p>Welcome own beloved enquire</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="icon-box-items">
+              <div class="icon-box-item">
+                <div class="box-icon">
+                  <i class="ion-android-contacts"></i>
+                </div>
+                <div class="box-desc">
+                  <h4>24/7 Customer Support</h4>
+                  <p>Enquire welcome beloved matters</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
 
     <div class="sections">
-      <div class="container">
-        <h2 class="text-center">Detalle de envio y comisiones.</h2>
+      <h2 class="text-center">Productos más buscados</h2>
 
-        <div class="description">
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-          <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-3" v-for="product in products">
+            <div class="product-box">
+              <div class="product-image">
+                <img v-holder="{img:'255x255'}" class="img-fluid">
+                <a :href="'/product/'+product.slug"></a>
+              </div>
+              <div class="product-meta-container">
+                <div class="product-meta text-center">
+                  <div class="product-title">
+                    <a :href="'/product/'+product.slug">{{ product.name }}</a>
+                  </div>
+                  <div class="product-price">
+                    <span v-if="product.discount">S/.{{ product.discount | amount }}</span>
+                    <span v-else>S/.{{ product.price | amount }}</span>
+                  </div>
+                </div>
+                <div class="product-add-cart">
+                  <button class="btn btn-red">Add to cart</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
   </div>
 </template>
 <script type="text/javascript">
@@ -125,14 +248,32 @@
     name: 'home',
     data(){
       return {
-        categories:[]
+        categories:[],
+        products:[],
       }
     },
     methods:{
 
     },
+    filters:{
+      amount(value){
+        return parseFloat(value).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+      }
+    },
     mounted(){
       var vm = this;
+
+      axios.get('/api/products').then(
+        (result) => {
+
+          vm.products = result.data.products;
+
+        },
+
+        (error) => {
+
+        }
+      );
 
       axios.get('/api/categories').then(
         (result) => {

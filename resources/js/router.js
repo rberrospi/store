@@ -76,6 +76,14 @@ const router = new Router ({
       }
     }, 
     {
+      path: '/admin/products/categories',
+      name: 'adminCategories',
+      component: adminCategories,
+      meta: {
+        roles: 'admin'
+      }
+    },
+    {
       path: '/admin/products/:id',
       name: 'adminProductsEdit',
       component: editor,
@@ -87,14 +95,6 @@ const router = new Router ({
       path: '/admin/new-product',
       name: 'editor',
       component: editor,
-      meta: {
-        roles: 'admin'
-      }
-    },    
-    {
-      path: '/admin/products/categories',
-      name: 'adminCategories',
-      component: adminCategories,
       meta: {
         roles: 'admin'
       }
