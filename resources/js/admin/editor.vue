@@ -15,6 +15,16 @@
 
         <div class="form-group row">
           <div class="col-md-6">
+            <label>Imagen de Producto</label>
+            <input type="file" :required="!product.image" class="form-control" ref="file">
+          </div>
+          <div class="col-md-6 text-center" v-if="product.image">
+            <img  :src="'/storage/'+product.image" class="rounded img-fluid img-table2">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-6">
             <label>Nombre de Producto</label>
             <input type="text" v-model="product.name" class="form-control" required="">
           </div>
@@ -135,9 +145,11 @@
         var vm = this;
         var action = 'post'
         var path = '/api/products';
+        var data = vm.product;
         if (vm.product.id) {
-          action = 'put';
+          action = 'post';
           path += '/'+ vm.product.id;
+          data['_method'] = 'PUT';
         }
 
         axios[action](path, vm.product).then(
@@ -145,13 +157,34 @@
             if (result.data.error) {
               toastr.error(result.data.error,'Oops!');
             } else {
-              vm.$router.push('/admin/products')
+
+              var product = result.data.product;
+
+              if (vm.$refs.file.files.length) {
+                var data = new FormData();
+                data.append('_method','PUT');
+                data.append('image', vm.$refs.file.files[0]);
+                
+                axios.post('/api/products/'+product.id, data).then(
+                  (result) => {
+                    vm.$router.push('/admin/products');
+                  },
+                  (error) => {
+
+                  }
+                );
+
+
+              } else {
+                vm.$router.push('/admin/products');
+              }
             }
           }, 
           (error) => {
             toastr.error('Something happen.','Oops!');
           }
         )
+
       },
       load(){
         var vm = this;

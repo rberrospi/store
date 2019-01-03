@@ -52,12 +52,12 @@ class ProductController extends Controller{
 
 
     if (!$user || $user->role != 'user') {
-      Product::create($data);
+      $product = Product::create($data);
     } else {
       $error = 'You are not allowed to do this.';
     }
 
-    return ['error' => $error];
+    return ['error' => $error, 'product' => $product];
   }
 
   public function update(Product $product, Request $request) {
@@ -65,6 +65,8 @@ class ProductController extends Controller{
     $data = $request->all();
     $user = $request->user();
     $error = FALSE;
+
+    unset($data['ìmage']);
 
     if (isset($data['name'])) {
       $slug = str_slug($data['name']);
@@ -81,6 +83,16 @@ class ProductController extends Controller{
       $data['slug'] = $rslug;
     }
 
+    if(!isset($rslug)) {
+      $rslug = $product->slug;
+    }
+
+    if ($request->hasFile('image')) {
+      $filename = $rslug.'.'.$request->file('image')->extension();
+      $path  = $request->file('image')->storeAs('public/products',$filename);
+      $data['image'] = 'products/'.$filename;
+    }
+
 
     if (!$user || $user->role != 'admin') {
       unset($data['free']);
@@ -93,7 +105,11 @@ class ProductController extends Controller{
       $error = 'You are not allowed to do this.';
     }
 
-    return ['error' => $error];
+
+    return ['error' => $error, 'product' => $product, 'data'=> $data];
   }
 
 }
+
+
+

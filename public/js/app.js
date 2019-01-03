@@ -2053,6 +2053,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'editor',
   props: ['user'],
@@ -2074,17 +2084,30 @@ __webpack_require__.r(__webpack_exports__);
       var vm = this;
       var action = 'post';
       var path = '/api/products';
+      var data = vm.product;
 
       if (vm.product.id) {
-        action = 'put';
+        action = 'post';
         path += '/' + vm.product.id;
+        data['_method'] = 'PUT';
       }
 
       axios[action](path, vm.product).then(function (result) {
         if (result.data.error) {
           toastr.error(result.data.error, 'Oops!');
         } else {
-          vm.$router.push('/admin/products');
+          var product = result.data.product;
+
+          if (vm.$refs.file.files.length) {
+            var data = new FormData();
+            data.append('_method', 'PUT');
+            data.append('image', vm.$refs.file.files[0]);
+            axios.post('/api/products/' + product.id, data).then(function (result) {
+              vm.$router.push('/admin/products');
+            }, function (error) {});
+          } else {
+            vm.$router.push('/admin/products');
+          }
         }
       }, function (error) {
         toastr.error('Something happen.', 'Oops!');
@@ -56553,6 +56576,27 @@ var render = function() {
                 ])
               ])
             : _vm._e(),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group row" }, [
+            _c("div", { staticClass: "col-md-6" }, [
+              _c("label", [_vm._v("Imagen de Producto")]),
+              _vm._v(" "),
+              _c("input", {
+                ref: "file",
+                staticClass: "form-control",
+                attrs: { type: "file", required: !_vm.product.image }
+              })
+            ]),
+            _vm._v(" "),
+            _vm.product.image
+              ? _c("div", { staticClass: "col-md-6 text-center" }, [
+                  _c("img", {
+                    staticClass: "rounded img-fluid img-table2",
+                    attrs: { src: "/storage/" + _vm.product.image }
+                  })
+                ])
+              : _vm._e()
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group row" }, [
             _c("div", { staticClass: "col-md-6" }, [
