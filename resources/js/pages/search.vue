@@ -1,8 +1,12 @@
 <template>
-  <div class="container" v-if="category">
+  <div class="container" v-if="loaded">
     <br><br>
-    <h1 class="text-center">{{ category.name }}</h1>
+    <h1 class="text-center">{{ search }}</h1>
     <div class="row">
+      <div class="col-md-12 text-center" v-if="products.length == 0">
+        <h4>No se han encontrado productos</h4>
+        <br><br>
+      </div>
       <div class="col-md-3" v-for="product in products">
         <div class="product-box">
           <div class="product-image">
@@ -31,38 +35,39 @@
 </template>
 <script type="text/javascript">
   export default {
-    name: 'category',
+    name: 'search',
     data(){
       return {
         products:[],
-        category: false
+        search: '',
+        loaded: false,
+      }
+    },
+    watch:{
+      $route(){
+        this.load();
       }
     },
     methods:{
+      load(){
+        var vm = this;
+
+        this.search = this.$route.params.search;
+
+        axios.get('/api/products-index?search='+this.search).then(
+          (result) => {
+            vm.products = result.data.products;
+            vm.loaded = true;
+          },
+
+          (error) => {
+          }
+        );
+      }
 
     },
     mounted(){
-      var vm = this;
-      axios.get('/api/products').then(
-        (result) => {
-          vm.products = result.data.products;
-        },
-
-        (error) => {
-        }
-      );
-
-      axios.get('/api/category-slug/'+this.$route.params.slug).then(
-        (result) => {
-
-          vm.category = result.data.category;
-
-        },
-        (error) => {
-
-        }
-      )
-      
+      this.load();
     }
   }
 </script>

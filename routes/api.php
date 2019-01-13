@@ -20,11 +20,14 @@ Route::get('products/{product}','ProductController@show');
 Route::get('products-slug/{slug}','ProductController@getBySlug');
 Route::get('category-slug/{slug}','CategoriesController@getBySlug');
 
+Route::get('products-index','ProductController@index');
+
 Route::group(['middleware' => 'auth:api'], function(){
   Route::get('user', 'UserController@get');
   Route::resource('stores','StoreController')->only(['update']);
 
   Route::resource('products','ProductController')->only(['index','store','update']);
+  Route::post('products/{product}/variations','ProductController@variations');
 
   Route::group(['middleware' => 'admin'], function(){
     Route::resource('users', 'UserController')->only(['index','update']);

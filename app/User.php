@@ -32,4 +32,16 @@ class User extends Authenticatable
     protected $casts = [
       'address' => 'object'
     ];
+
+    protected $appends = ['store'];    
+
+
+    public function store(){
+      return $this->hasOne(Store::class);
+    }
+
+    public function getStoreAttribute(){
+      return $this->store()->first();
+    }
+
 }

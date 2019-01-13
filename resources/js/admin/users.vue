@@ -14,6 +14,10 @@
               </button>
             </div>
             <br>
+            <div class="alert alert-info">
+              Los usuarios pueden habilitarse o deshabilitarse con el boton <i class="fa fa-toggle-on"></i>.<br>
+              Una vez que los usuarios tengan un rol este no podrá ser cambiado.
+            </div>            
             <table class="table table-hovered table-bordered table-striped">
               <thead>
                 <tr>
@@ -30,13 +34,18 @@
                   <td>{{ account.lastname }}</td>
                   <td>{{ account.email }}</td>
                   <td>
-                    <label class="badge badge-primary">{{ account.role | role }}</label>
+                    <span class="badge badge-primary">
+                      {{ account.role | role }}
+                    </span>
+                    <span class="badge badge-danger" v-if="account.role == 'owner' && !account.store">
+                      sin tienda
+                    </span>
                   </td>
                   <td>
                     <a @click.prevent="edit(account)" href="#">
                       <i class="fa fa-pencil"></i>
                     </a>
-                    <span v-if="account.role != 'admin'">
+                    <span v-if="account.role == 'user' || account.role == 'cm' || (account.role == 'owner' && account.store )">
                       <a class="text-success" @click.prevent="changeState(account)" v-if="account.status">
                         <i class="fa fa-toggle-on" aria-hidden="true"></i>
                       </a>
@@ -69,15 +78,26 @@
             <div class="modal-body">
               <div class="form-group">
                 <label>Tipo de Usuario</label>
-                <select class="form-control" v-model="account.role">
+                <select class="form-control" v-model="account.role" :disabled="account.id > 0">
                   <option value="user">Usuario</option>
                   <option value="owner">Proveedor</option>
+                  <option value="cm">Comisionista</option>
                   <option value="admin">Administrador</option>
                 </select>
               </div>
+              <div class="form-group" v-if="account.role == 'owner'">
+                <label>Tienda:</label>
+                <select class="form-control" required="" v-if="account.store" disabled="">
+                  <option>{{ account.store.name }}</option>
+                </select>
+                <select class="form-control" v-model="account.store" required="" v-else>
+                  <option value="" disabled="">-- Seleccione --</option>
+                  <option v-for="s in stores" :value="s.id">{{ s.name }}</option>
+                </select>                
+              </div>
               <div class="form-group">
                 <label>Nombres:</label>
-                <input type="text" v-model="account.name" class="form-control" placeholder="Nombres" required="">                
+                <input type="text" v-model="account.name" class="form-control" placeholder="Nombres" required="">
               </div>
               <div class="form-group">
                 <label>Apellidos:</label>
@@ -117,12 +137,14 @@
     data(){
       return {
         accounts:[],
+        stores:[],
         account:{
           id: 0,
           role: 'user',
           email: '',
           email2: '',
           password: '',
+          store: '',
           name: '',
           lastname: '',
           phone: '',
@@ -168,6 +190,7 @@
           id: 0,
           role: 'user',
           email: '',
+          store: '',
           email2: '',
           password: '',
           name: '',
@@ -203,6 +226,19 @@
       load(){
         var vm = this;
         this.loading = true;
+
+
+        axios.get('/api/stores?nousers=1').then(
+          (result) => {
+            vm.stores = result.data.stores;
+            vm.loading = false;
+          },
+          (error) => {
+            toastr.error('Something happen.','Oops!');
+          }
+        );
+
+
         axios.get('/api/users').then(
           (result) => {
             vm.accounts = result.data.users;

@@ -6,11 +6,18 @@
       </div>
     </div>
 
-    <div class="product-content">
+    <div class="product-content" v-if="product">
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
-            <img v-holder="{img:'480x480'}" class="rounded">
+          <div class="col-md-6" v-if="product.variations.length">
+            <carousel :autoplay="false" :nav="false" :items="1" ref="carousel"> 
+              <div class="img-carousel" v-for="v in product.variations">
+                <img :src="'/storage/'+v.image" class="img-responsive">
+              </div>
+            </carousel>
+          </div>
+          <div class="col-md-6" v-else>
+            <img :src="'/storage/'+product.image" class="img-fluid">
           </div>
           <div class="col-md-6">
             <div class="product-price">
@@ -23,7 +30,15 @@
             <div class="product-description">
               {{ product.summary }}
             </div>
-
+            <br>
+            <div class="variation" v-if="product.variations.length">
+              <select class="form-control" v-model="cart.variation" @change="showImage">
+                <option v-for="v, index in product.variations" :value="index">
+                  {{ v.model }} - {{ v.color }} - {{ v.gender }} <span v-if="v.stock == 0">(Sin STOCK)</span>
+                </option>
+              </select>
+            </div>
+            <br>
             <div class="product-actions">
               <input type="number" v-model="cart.qty" readonly="">
               <span class="changers">
@@ -81,6 +96,7 @@
         product: false,
         cart: {
           qty: 1,
+          variation: false
         }
       }
     },
@@ -90,6 +106,9 @@
       }
     },
     methods:{
+      showImage(){
+        $($('.owl-dot')[this.cart.variation]).trigger('click');
+      },
       addToCart(){
         var vm = this;
         var cart = this.$ls.get('cart');
@@ -97,19 +116,21 @@
           cart = JSON.parse(cart);
           var key = cart.findIndex((item) => item.product.id == vm.product.id );
 
-          if (key > -1) {
+          if (key > -1 && cart[key].variation === this.cart.variation) {
             cart[key].qty += this.cart.qty;
           } else {
             cart.push({
               product : this.product,
-              qty: this.cart.qty
+              qty: this.cart.qty,
+              variation: this.cart.variation
             });
           }
         } else {
           cart = [];
           cart.push({
             product : this.product,
-            qty: this.cart.qty
+            qty: this.cart.qty,
+            variation: this.cart.variation
           });
         }
 
@@ -132,7 +153,9 @@
         axios.get('/api/products-slug/'+this.$route.params.slug).then(
           (result) => {
             vm.product = result.data.product;
-
+            if (vm.product.variations.length) {
+              vm.cart.variation = 0;
+            }
             $('a[data-toggle="tab"]').tab();
 
           },

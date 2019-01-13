@@ -57,9 +57,9 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbar-main">
-          <form class="form-inline ml-auto">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <div class="collapse navbar-collapse" id="navbar-main" >
+          <form class="form-inline ml-auto" @submit.prevent="doSearch">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="search" required="">
             <button class="btn btn-outline-success" type="submit">
               <i class="fa fa-search"></i>
             </button>
@@ -138,6 +138,7 @@
       return {
         user : false,
         loaded: false,
+        search: '',
         cart: []
       }
     },
@@ -147,6 +148,9 @@
       }
     },
     methods:{
+      doSearch(){
+        this.$router.push('/search/'+this.search)
+      },
       cartUpdated(cart){
         this.cart = cart
       },

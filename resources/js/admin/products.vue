@@ -5,7 +5,7 @@
         <h1>Productos</h1>
       </div>
       <div class="row justify-content-md-center">
-        <div class="col-md-8">
+        <div class="col-md-8" v-if="user.role == 'admin' || user.store">
           <div class="table-responsive">
             <div class="text-right">
               <router-link class="btn btn-success btn-sm" to=/admin/new-product>
@@ -61,11 +61,14 @@
                   </td>
                 </tr>
                 <tr v-if="products.length == 0">
-                  <td colspan="5" class="text-center">No existen productos.</td>
+                  <td colspan="7" class="text-center">No existen productos.</td>
                 </tr>
               </tbody>
             </table>
           </div>
+        </div>
+        <div class="col-md-8" v-else>
+          <div class="alert alert-info text-center">Usted no cuenta con una tienda asignada.</div>
         </div>
       </div>
     </div>
@@ -95,7 +98,7 @@
       load(){
         var vm = this;
         this.loading = true;
-        axios.get('/api/products').then(
+        axios.get('/api/products?edit=1').then(
           (result) => {
             vm.products = result.data.products;
             vm.loading = false;

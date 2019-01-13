@@ -8,7 +8,18 @@ class StoreController extends Controller{
 
 
   public function index(Request $request) {
-    return ['stores' => Store::all()];
+
+    $filters = $request->all();
+
+    $query = Store::where('id', '>', 0);
+
+    if (isset($filters['nousers'])) {
+      $query->where('user_id',0);
+    }
+
+    $stores = $query->get();
+
+    return ['stores' => $stores];
   }
 
   public function store(Request $request) {

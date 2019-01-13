@@ -28,6 +28,7 @@
         "toastr": "^2.1.4",
         "vue-holderjs": "^1.0.2",
         "vue-localstorage": "^0.6.2",
+        "vue-owl-carousel": "^2.0.3",
         "vue-router": "^3.0.2",
         "vue-upload-component": "^2.8.16"
     }

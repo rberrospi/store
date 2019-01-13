@@ -10,7 +10,34 @@ class ProductController extends Controller{
 
   public function index(Request $request) {
     $user = Auth::guard('api')->user();
-    $products = Product::all();
+
+    $filter = $request->all();
+
+    $query = Product::where('id','>',0);
+
+    if (isset($filter['edit'])) {
+
+      if ($user->role != 'admin') {
+      
+        if ($user->store) {
+          $query->where('store_id',$user->store->id); 
+        }  else {
+          $query->where('store_id','XX'); 
+        }
+      } 
+    } else {
+      $query->where('approved',1);
+      $query->where('status',1);
+    }
+
+
+    if (isset($filter['search'])) {
+      $query->where('name','LIKE','%'.$filter['search'].'%');
+    }
+
+
+    $products = $query->get();
+
     return ['products' => $products];
   }
 
@@ -23,7 +50,43 @@ class ProductController extends Controller{
     return ['product' => $product];
   }
 
-  
+  public function variations(Product $product, Request $request){
+
+    $data = $request->all();
+    $variations = $product->variations;
+
+    if (isset($data['index'])) {
+      if (isset($data['delete'])) {
+        unset($variations[$data['index']]);
+      } else {
+        if ($request->hasFile('image')) {
+          $slug = $product->slug.'-'.($data['index']+1);
+          $filename = $slug.'.'.$request->file('image')->extension();
+          $path  = $request->file('image')->storeAs('public/variations',$filename);
+          $data['image'] = 'variations/'.$filename;
+        } else {
+          $data['image'] = $variations[$data['index']]['image'];
+        }
+
+        $variations[$data['index']] = $data;
+      }
+    } else {
+      if ($request->hasFile('image')) {
+        $slug = $product->slug.'-'.count($product->variations);
+        $filename = $slug.'.'.$request->file('image')->extension();
+        $path  = $request->file('image')->storeAs('public/variations',$filename);
+        $data['image'] = 'variations/'.$filename;
+      }
+
+      $variations[] = $data;
+    }
+
+
+    $product->update(['variations' => $variations]);
+
+
+    return ['product' => $product];
+  }
 
   public function store(Request $request) {
     $user = $request->user();
@@ -48,6 +111,7 @@ class ProductController extends Controller{
     if (!$user || $user->role != 'admin') {
       unset($data['free']);
       unset($data['approved']);
+      $data['store_id'] = $user->store->id;
     }
 
 

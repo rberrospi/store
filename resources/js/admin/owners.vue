@@ -15,6 +15,12 @@
               </button>
             </div>
             <br>
+            <div class="alert alert-info">
+              El estado <div class="badge badge-warning">Solicitud</div> indica que el proveedor aún no tiene un usuario asignado 
+              por lo que no podra crear productos, y los productos que tengan no se mostraran.<br>
+              El estado <div class="badge badge-success">Asignado</div> indica que el proveedor tiene un usuario asigando y puede crear y mostar sus productos, pero puede ser habilitado o deshabilitado  con el boton <i class="fa fa-toggle-on"></i>
+            </div>
+            <br>
             <table class="table table-hovered table-bordered table-striped">
               <thead>
                 <tr>
@@ -88,7 +94,7 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label>RUC:</label>
-                  <input type="text" v-model="store.ruc" class="form-control" placeholder="RUC" required="">
+                  <input type="text" v-model="store.ruc" class="form-control" placeholder="RUC" required="" maxlength="11">
                 </div>
                 <div class="form-group col-md-6">
                   <label>Persona de Contacto:</label>
@@ -112,7 +118,7 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label>DNI:</label>
-                  <input type="text" v-model="store.dni" class="form-control" placeholder="DNI" required="">
+                  <input type="text" v-model="store.dni" class="form-control" placeholder="DNI" required="" maxlength="7">
                 </div>
                 <div class="form-group col-md-6">
                   <label>Banco</label>
@@ -127,13 +133,6 @@
                 <div class="form-group col-md-6">
                   <label>Número de cuenta Interbancaria</label>
                   <input type="text" v-model="store.cci" class="form-control" placeholder="Numero de cuenta Interbancaria" required="">
-                </div>
-                <div class="form-group col-md-6">
-                  <label>Usuario</label>
-                  <select class="form-control" v-model="store.user_id">
-                    <option value="0">- No asignado -</option>
-                    <option v-for="user in users" :value="user.id">{{ user.email }}</option>
-                  </select>
                 </div>
               </div>
             </div>
@@ -170,7 +169,6 @@
           dni:'',
           bank:'',
           cci:'',
-          user_id: 0
         }
       }
     },
@@ -208,7 +206,6 @@
           dni:'',
           bank:'',
           cci:'',
-          user_id: 0
         }
       },
       submit(){
@@ -243,16 +240,6 @@
           },
           (error) => {
             toastr.error('Something happen.','Oops!');
-          }
-        );
-
-        axios.get('/api/users').then(
-          (result) => {
-            var users = result.data.users.filter((user) => user.role == 'owner');
-            vm.users = users;
-          },
-          (error) => {
-            
           }
         );
       }

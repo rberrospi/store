@@ -24,7 +24,12 @@
                 <img v-if="item.product.image" :src="'/storage/'+item.product.image" class="rounded img-table3">
                 <img v-else v-holder="{img:'100x100'}" class="rounded">
               </td>
-              <td>{{ item.product.name }}</td>
+              <td>
+                <p>{{ item.product.name }}</p>
+                <p class="text-muted" v-if="item.product.variations.length">
+                  <small>{{ item.product.variations[item.variation].model }} - {{ item.product.variations[item.variation].color }} - {{ item.product.variations[item.variation].gender }}</small>
+                </p>
+              </td>
               <td>S/. {{ item.product.price | amount }}</td>
               <td>
                 <input type="number" v-model="item.qty" step="1" min="1">

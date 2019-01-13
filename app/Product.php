@@ -14,7 +14,7 @@ class Product extends Model
    * @var array
    */
   protected $fillable = [
-    'name','category_id','price','desc','summary','body','stock','condition','address','province','free','over18','returns','warranty', 'status','approved', 'slug', 'image'
+    'name','category_id','price','desc','summary','body','stock','condition','address','province','free','over18','returns','warranty', 'status','approved', 'slug', 'image', 'variations','store_id'
   ];
 
   /**
@@ -24,5 +24,9 @@ class Product extends Model
    */
   protected $hidden = [
       'created_at', 'updated_at'
+  ];
+
+  protected $casts = [
+    'variations' => 'array',
   ];
 }

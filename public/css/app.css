@@ -9772,6 +9772,10 @@ a:hover {
   font-weight: 300;
 }
 
+.tab-pane {
+  padding-top: 24px;
+}
+
 .image-cart {
   max-width: 28px;
   max-height: 28px;

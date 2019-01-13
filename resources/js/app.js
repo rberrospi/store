@@ -12,12 +12,14 @@ import App from './index.vue'
 import router from './router'
 import VueLocalStorage from 'vue-localstorage'
 import VueHolder from 'vue-holderjs';
+import carousel from 'vue-owl-carousel'
 
 const VueUploadComponent = require('vue-upload-component')
 Vue.component('file-upload', VueUploadComponent)
 
 
 Vue.use(VueHolder);
+Vue.component('carousel',carousel);
 
 Vue.use(VueLocalStorage, {
   name: 'ls',

@@ -8,6 +8,8 @@ import cart from './pages/cart.vue'
 import product from './pages/product.vue'
 import category from './pages/category.vue'
 
+import search from './pages/search.vue'
+
 
 import adminUsers from './admin/users.vue'
 import adminCategories from './admin/categories.vue'
@@ -56,6 +58,11 @@ const router = new Router ({
       path: '/categories/:slug',
       name: 'category',
       component: category
+    },
+    {
+      path: '/search/:search',
+      name: 'search',
+      component: search
     },
     {
       path: '/admin/users',
