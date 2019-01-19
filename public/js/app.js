@@ -3056,8 +3056,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'index',
   data: function data() {
@@ -59692,10 +59690,10 @@ var render = function() {
                           expression: "search"
                         }
                       ],
-                      staticClass: "form-control mr-sm-2",
+                      staticClass: "form-control mr-md-2",
                       attrs: {
                         type: "search",
-                        placeholder: "Search",
+                        placeholder: "Encuentra lo que buscas!",
                         "aria-label": "Search",
                         required: ""
                       },
@@ -59708,27 +59706,12 @@ var render = function() {
                           _vm.search = $event.target.value
                         }
                       }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(3)
+                    })
                   ]
                 ),
                 _vm._v(" "),
                 _c("ul", { staticClass: "navbar-nav ml-auto" }, [
-                  _c(
-                    "li",
-                    { staticClass: "nav-item" },
-                    [
-                      _c(
-                        "router-link",
-                        { staticClass: "nav-link", attrs: { to: "/join" } },
-                        [_vm._v("Unete a nosotros")]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _vm._m(4),
+                  _vm._m(3),
                   _vm._v(" "),
                   _c("li", { staticClass: "nav-item dropdown cart-link" }, [
                     _c(
@@ -59837,7 +59820,7 @@ var render = function() {
         )
       : _vm._e(),
     _vm._v(" "),
-    _vm._m(5)
+    _vm._m(4)
   ])
 }
 var staticRenderFns = [
@@ -59888,16 +59871,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      { staticClass: "btn btn-outline-success", attrs: { type: "submit" } },
-      [_c("i", { staticClass: "fa fa-search" })]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("li", { staticClass: "nav-item" }, [
       _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
         _vm._v("Personaliza tu Polo")
@@ -59916,48 +59889,41 @@ var staticRenderFns = [
               _c("p", [
                 _c("img", {
                   staticClass: "img-fluid",
-                  attrs: {
-                    src:
-                      "http://hugestem.com/wosh/themes/wosh/assets/images/logo-light.png",
-                    alt: "logo"
-                  }
+                  attrs: { src: "/logo.png", alt: "logo" }
                 })
               ]),
               _vm._v(" "),
               _c("p", [
                 _vm._v(
-                  "To be a recognized world leader and authority in the industry for design and creativity."
-                ),
-                _c("br"),
-                _vm._v("\n              Fax: +098 123 4567 E-mail: "),
-                _c("a", { attrs: { href: "mailto:info@website.com" } }, [
-                  _vm._v("info@website.com")
-                ])
+                  "Compra Facil es un novedoso portal de venta electrónica ..."
+                )
               ])
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-md-3" }, [
             _c("div", { staticClass: "block" }, [
-              _c("h2", [_vm._v("Quick Links")]),
+              _c("h2", [_vm._v("Enlaces frecuentes")]),
               _vm._v(" "),
               _c("ul", [
                 _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Accounts")])
+                  _c("a", { attrs: { href: "#" } }, [_vm._v("Mi cuenta")])
                 ]),
                 _vm._v(" "),
                 _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Shipment")])
-                ]),
-                _vm._v(" "),
-                _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("FAQs")])]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Return policy")])
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v("Terminos y condiciones")
+                  ])
                 ]),
                 _vm._v(" "),
                 _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Compare")])
+                  _c("a", { attrs: { href: "#" } }, [_vm._v("Impuestos")])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v("Políticas de privacidad")
+                  ])
                 ])
               ])
             ])
@@ -59965,7 +59931,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("div", { staticClass: "col-md-3" }, [
             _c("div", { staticClass: "block" }, [
-              _c("h2", [_vm._v("Recent Posts")])
+              _c("h2", [_vm._v("Ultimas Ventas")])
             ])
           ])
         ])
@@ -60693,9 +60659,11 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "box-desc" }, [
-                    _c("h4", [_vm._v("Free Shipping Order")]),
+                    _c("h4", [_vm._v("Delivery en lima gratuito")]),
                     _vm._v(" "),
-                    _c("p", [_vm._v("Improve $500 enquire own beloved")])
+                    _c("p", [
+                      _vm._v("A provincias tiene un cargo de S./ 10.00")
+                    ])
                   ])
                 ])
               ])
@@ -60709,9 +60677,9 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "box-desc" }, [
-                    _c("h4", [_vm._v("30 Days Returns Policy")]),
+                    _c("h4", [_vm._v("Respuesta inmediata")]),
                     _vm._v(" "),
-                    _c("p", [_vm._v("Welcome own beloved enquire")])
+                    _c("p", [_vm._v("Realiza consultas al portal.")])
                   ])
                 ])
               ])
@@ -60725,9 +60693,9 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "box-desc" }, [
-                    _c("h4", [_vm._v("24/7 Customer Support")]),
+                    _c("h4", [_vm._v("Soporte 24/7")]),
                     _vm._v(" "),
-                    _c("p", [_vm._v("Enquire welcome beloved matters")])
+                    _c("p", [_vm._v("Siempre seras atentido por nosotros.")])
                   ])
                 ])
               ])
@@ -79753,7 +79721,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_cart_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/cart.vue */ "./resources/js/pages/cart.vue");
 /* harmony import */ var _pages_product_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/product.vue */ "./resources/js/pages/product.vue");
 /* harmony import */ var _pages_category_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/category.vue */ "./resources/js/pages/category.vue");
-/* harmony import */ var _pages_search_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/search.vue */ "./resources/js/pages/search.vue");
+/* harmony import */ var _pages_search_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/search.vue */ "./resources/js/pages/search.vue");
 /* harmony import */ var _admin_users_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./admin/users.vue */ "./resources/js/admin/users.vue");
 /* harmony import */ var _admin_categories_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./admin/categories.vue */ "./resources/js/admin/categories.vue");
 /* harmony import */ var _admin_owners_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./admin/owners.vue */ "./resources/js/admin/owners.vue");
@@ -79808,7 +79776,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: '/search/:search',
     name: 'search',
-    component: _pages_search_vue__WEBPACK_IMPORTED_MODULE_15__["default"]
+    component: _pages_search_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
   }, {
     path: '/admin/users',
     name: 'adminUsers',
@@ -79884,8 +79852,8 @@ router.beforeEach(function (to, from, next) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /usr/local/var/www/others/tiends/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /usr/local/var/www/others/tiends/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Applications/XAMPP/xamppfiles/htdocs/store/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Applications/XAMPP/xamppfiles/htdocs/store/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
