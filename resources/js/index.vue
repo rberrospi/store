@@ -102,7 +102,7 @@
           <div class="col-md-3">
             <div class="block">
               <p>
-                <img src="/logo.png" alt="logo" class="img-fluid">
+                <img src="/logo-footer.png" alt="logo" class="img-fluid">
               </p>
               <p>Compra Facil es un novedoso portal de venta electrónica ...</a>
               </p>

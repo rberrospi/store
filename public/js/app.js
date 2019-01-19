@@ -59889,7 +59889,7 @@ var staticRenderFns = [
               _c("p", [
                 _c("img", {
                   staticClass: "img-fluid",
-                  attrs: { src: "/logo.png", alt: "logo" }
+                  attrs: { src: "/logo-footer.png", alt: "logo" }
                 })
               ]),
               _vm._v(" "),
@@ -60650,57 +60650,7 @@ var staticRenderFns = [
       },
       [
         _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-4" }, [
-              _c("div", { staticClass: "icon-box-items" }, [
-                _c("div", { staticClass: "icon-box-item" }, [
-                  _c("div", { staticClass: "box-icon" }, [
-                    _c("i", { staticClass: "ion-android-plane" })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "box-desc" }, [
-                    _c("h4", [_vm._v("Delivery en lima gratuito")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v("A provincias tiene un cargo de S./ 10.00")
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
-              _c("div", { staticClass: "icon-box-items" }, [
-                _c("div", { staticClass: "icon-box-item" }, [
-                  _c("div", { staticClass: "box-icon" }, [
-                    _c("i", { staticClass: "ion-clock" })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "box-desc" }, [
-                    _c("h4", [_vm._v("Respuesta inmediata")]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v("Realiza consultas al portal.")])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
-              _c("div", { staticClass: "icon-box-items" }, [
-                _c("div", { staticClass: "icon-box-item" }, [
-                  _c("div", { staticClass: "box-icon" }, [
-                    _c("i", { staticClass: "ion-android-contacts" })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "box-desc" }, [
-                    _c("h4", [_vm._v("Soporte 24/7")]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v("Siempre seras atentido por nosotros.")])
-                  ])
-                ])
-              ])
-            ])
-          ])
+          _c("div", { staticClass: "row sponsor" })
         ])
       ]
     )

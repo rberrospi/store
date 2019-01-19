@@ -9943,9 +9943,9 @@ footer .block ul li a {
 .sections.section-bg {
   background-position: center center;
   background-repeat: no-repeat;
-  margin-bottom: 80px;
+  /*margin-bottom: 80px;
   padding-top: 80px;
-  padding-bottom: 80px;
+  padding-bottom: 80px;*/
 }
 
 .icon-box-items {
@@ -10034,6 +10034,10 @@ footer .block ul li a {
 .product-box:hover .product-meta-container .product-add-cart {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
+}
+
+.container .sponsor {
+  height: 200px;
 }
 
 #cart .product-title {

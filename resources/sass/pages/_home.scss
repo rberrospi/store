@@ -4,9 +4,9 @@
   &.section-bg{
     background-position: center center;
     background-repeat: no-repeat;
-    margin-bottom: 80px;
+    /*margin-bottom: 80px;
     padding-top: 80px;
-    padding-bottom: 80px;
+    padding-bottom: 80px;*/
   }
 }
 
@@ -105,6 +105,10 @@
       }
     }
   }
+}
 
-
+.container{
+  .sponsor{
+    height: 200px;
+  }
 }

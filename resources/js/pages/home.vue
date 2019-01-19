@@ -164,8 +164,8 @@
 
     <div class="sections section-bg" style="background-image:url('/images/info.jpg')">
       <div class="container">
-        <div class="row">
-          <div class="col-md-4">
+        <div class="row sponsor">
+          <!--div class="col-md-4">
             <div class="icon-box-items">
               <div class="icon-box-item">
                 <div class="box-icon">
@@ -199,11 +199,11 @@
                 </div>
                 <div class="box-desc">
                   <h4>Soporte 24/7</h4>
-                  <p>Siempre seras atentido por nosotros.</p>
+                  <p>Siempre seras atentido por</p>
                 </div>
               </div>
             </div>
-          </div>
+          </div-->
         </div>
       </div>
     </div>
