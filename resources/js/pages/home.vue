@@ -164,16 +164,16 @@
 
     <div class="sections section-bg" style="background-image:url('/images/info.jpg')">
       <div class="container">
-        <div class="row">
-          <div class="col-md-4">
+        <div class="row sponsor">
+          <!--div class="col-md-4">
             <div class="icon-box-items">
               <div class="icon-box-item">
                 <div class="box-icon">
                   <i class="ion-android-plane"></i>
                 </div>
                 <div class="box-desc">
-                  <h4>Free Shipping Order</h4>
-                  <p>Improve $500 enquire own beloved</p>
+                  <h4>Delivery en lima gratuito</h4>
+                  <p>A provincias tiene un cargo de S./ 10.00</p>
                 </div>
               </div>
             </div>
@@ -185,8 +185,8 @@
                   <i class="ion-clock"></i>
                 </div>
                 <div class="box-desc">
-                  <h4>30 Days Returns Policy</h4>
-                  <p>Welcome own beloved enquire</p>
+                  <h4>Respuesta inmediata</h4>
+                  <p>Realiza consultas al portal.</p>
                 </div>
               </div>
             </div>
@@ -198,12 +198,12 @@
                   <i class="ion-android-contacts"></i>
                 </div>
                 <div class="box-desc">
-                  <h4>24/7 Customer Support</h4>
-                  <p>Enquire welcome beloved matters</p>
+                  <h4>Soporte 24/7</h4>
+                  <p>Siempre seras atentido por</p>
                 </div>
               </div>
             </div>
-          </div>
+          </div-->
         </div>
       </div>
     </div>

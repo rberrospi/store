@@ -13,3 +13,11 @@ nav.navbar{
     }
   }
 }
+
+.form-inline{
+  .form-control{
+    display: inline-block;
+    width: 450px;
+    vertical-align: middle;
+  }
+}

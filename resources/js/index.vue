@@ -59,15 +59,15 @@
 
         <div class="collapse navbar-collapse" id="navbar-main" >
           <form class="form-inline ml-auto" @submit.prevent="doSearch">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="search" required="">
-            <button class="btn btn-outline-success" type="submit">
+            <input class="form-control mr-md-2" type="search" placeholder="Encuentra lo que buscas!" aria-label="Search" v-model="search" required="">
+            <!--button class="btn btn-outline-success" type="submit">
               <i class="fa fa-search"></i>
-            </button>
+            </button-->
           </form>
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+            <!--li class="nav-item">
               <router-link class="nav-link" to="/join">Unete a nosotros</router-link>
-            </li>
+            </li-->
             <li class="nav-item">
               <router-link class="nav-link" to="/personaliza-tu-polo">Personaliza tu Polo</router-link>
             </li>
@@ -103,28 +103,26 @@
           <div class="col-md-3">
             <div class="block">
               <p>
-                <img src="http://hugestem.com/wosh/themes/wosh/assets/images/logo-light.png" alt="logo" class="img-fluid">
+                <img src="/logo-footer.png" alt="logo" class="img-fluid">
               </p>
-              <p>To be a recognized world leader and authority in the industry for design and creativity.<br>
-                Fax: +098 123 4567 E-mail: <a href="mailto:info@website.com">info@website.com</a>
+              <p>Compra Facil es un novedoso portal de venta electrónica ...</a>
               </p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="block">
-              <h2>Quick Links</h2>
+              <h2>Enlaces frecuentes</h2>
               <ul>
-                <li><a href="#">Accounts</a></li>
-                <li><a href="#">Shipment</a></li>
-                <li><a href="#">FAQs</a></li>
-                <li><a href="#">Return policy</a></li>
-                <li><a href="#">Compare</a></li>
+                <li><a href="#">Mi cuenta</a></li>
+                <li><a href="#">Terminos y condiciones</a></li>
+                <li><a href="#">Impuestos</a></li>
+                <li><a href="#">Políticas de privacidad</a></li>
               </ul>
             </div>
           </div>
           <div class="col-md-3">
             <div class="block">
-              <h2>Recent Posts</h2>
+              <h2>Ultimas Ventas</h2>
             </div>
           </div>
         </div>
