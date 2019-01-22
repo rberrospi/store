@@ -5,7 +5,7 @@
         <h1>Usuarios</h1>
       </div>
       <div class="row justify-content-md-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
           <div class="table-responsive">
             <div class="text-right">
               <button class="btn btn-success btn-sm" @click.prevent="create">
@@ -21,6 +21,7 @@
             <table class="table table-hovered table-bordered table-striped">
               <thead>
                 <tr>
+                  <th>Nombre de Usuario</th>
                   <th>Nombres</th>
                   <th>Apellidos</th>
                   <th>E-mail</th>
@@ -30,6 +31,7 @@
               </thead>
               <tbody>
                 <tr v-for="account in accounts">
+                  <td>{{ account.username }}</td>
                   <td>{{ account.name }}</td>
                   <td>{{ account.lastname }}</td>
                   <td>{{ account.email }}</td>
@@ -39,6 +41,9 @@
                     </span>
                     <span class="badge badge-danger" v-if="account.role == 'owner' && !account.store">
                       sin tienda
+                    </span>
+                    <span class="badge badge-danger" v-if="account.role == 'user' && account.store">
+                      Proveedor pendiente
                     </span>
                   </td>
                   <td>
@@ -78,11 +83,12 @@
             <div class="modal-body">
               <div class="form-group">
                 <label>Tipo de Usuario</label>
-                <select class="form-control" v-model="account.role" :disabled="account.id > 0">
+                <select class="form-control" v-model="account.role" 
+                :disabled="account.id > 0 && !(account.role == 'user' && account.store)">
                   <option value="user">Usuario</option>
                   <option value="owner">Proveedor</option>
-                  <option value="cm">Comisionista</option>
-                  <option value="admin">Administrador</option>
+                  <option value="cm" v-show="!(account.role == 'user' && account.store)">Comisionista</option>
+                  <option value="admin" v-show="!(account.role == 'user' && account.store)">Administrador</option>
                 </select>
               </div>
               <div class="form-group" v-if="account.role == 'owner'">

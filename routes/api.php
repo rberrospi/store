@@ -24,6 +24,9 @@ Route::get('products-index','ProductController@index');
 
 Route::group(['middleware' => 'auth:api'], function(){
   Route::get('user', 'UserController@get');
+  Route::post('user', 'UserController@updateMe');
+  Route::post('wishlist', 'UserController@wishlist');
+
   Route::resource('stores','StoreController')->only(['update']);
 
   Route::resource('products','ProductController')->only(['index','store','update']);

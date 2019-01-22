@@ -289,7 +289,7 @@
     mounted(){
       var vm = this;
 
-      axios.get('/api/products').then(
+      axios.get('/api/products-index').then(
         (result) => {
 
           vm.products = result.data.products;

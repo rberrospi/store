@@ -14,7 +14,7 @@ class CategoriesController extends Controller{
 
   public function store(Request $request) {
     $error = FALSE;
-    $data = $request->only(['name']);
+    $data = $request->only(['name','subcategories']);
     $slug = str_slug($data['name']);
     $inc = -1;
 
@@ -48,7 +48,7 @@ class CategoriesController extends Controller{
   public function update(Category $category, Request $request) {
 
     $error = FALSE;
-    $data = $request->only(['name']);
+    $data = $request->only(['name','subcategories']);
     $slug = str_slug($data['name']);
     $inc = -1;
 

@@ -16,7 +16,7 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'parent', 'image', 'slug'
+        'name', 'subcategories','parent', 'image', 'slug'
     ];
 
     /**
@@ -27,4 +27,21 @@ class Category extends Model
     protected $hidden = [
         'created_at', 'updated_at'
     ];
+
+    public $appends = [
+      'subs'
+    ];
+
+    public function getSubsAttribute(){
+
+      $subcategories = [];
+
+      if (!empty($this->subcategories)) {
+        $subcategories = explode(',', $this->subcategories);
+        $subcategories = array_map('trim', $subcategories);
+      }
+
+      return $subcategories;
+    }
+
 }

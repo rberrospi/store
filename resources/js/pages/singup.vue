@@ -6,6 +6,10 @@
       </div>
       <form class="user-form" @submit.prevent="submit">
         <div class="form-group">
+          <input type="text" v-model="account.username" class="form-control" placeholder="Ej: john.doe" required="">
+          <div class="text-muted">Ingrese un nombre de usuario</div>
+        </div>
+        <div class="form-group">
           <input type="email" v-model="account.email" class="form-control" placeholder="Email" required="">
           <div class="text-muted">Ingrese su correo</div>
         </div>
@@ -47,6 +51,7 @@
     data(){
       return {
         account:{
+          username: '',
           email: '',
           email2: '',
           password: '',

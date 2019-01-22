@@ -95,6 +95,22 @@
       }
     }
 
+    a.favorites{
+      font-size: 12px;
+      margin: 0px 20px;
+      border-radius: 50%;
+      display: inline-block;
+      background-color: #e42555;
+      color: #fff;
+      height: 48px;
+      width: 48px;
+      line-height: 48px;
+      text-align: center;
+      vertical-align: top;
+      cursor: pointer;
+    }
+
+
     button{
       vertical-align: top;
       margin-top: 0;

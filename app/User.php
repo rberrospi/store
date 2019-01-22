@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'lastname', 'email', 'password', 'address', 'role', 'phone', 'mobile', 'status'
+        'username', 'name', 'lastname', 'email', 'password', 'address', 'role', 'phone', 'mobile', 'status'
     ];
 
     /**
@@ -33,7 +33,9 @@ class User extends Authenticatable
       'address' => 'object'
     ];
 
-    protected $appends = ['store'];    
+    protected $appends = [
+      'wishlist', 'store'
+    ];
 
 
     public function store(){
@@ -42,6 +44,15 @@ class User extends Authenticatable
 
     public function getStoreAttribute(){
       return $this->store()->first();
+    }
+
+
+    public function wishlist(){
+      return $this->belongsToMany(Product::class,'wishlist');
+    }
+
+    public function getWishlistAttribute(){
+      return $this->wishlist()->get();
     }
 
 }

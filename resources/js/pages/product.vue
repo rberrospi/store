@@ -46,6 +46,10 @@
                 <span @click="dec">-</span>
               </span>
               <button class="btn btn-red" @click.prevent="addToCart">Add to cart</button>
+              <a class="favorites" @click.prevent="toWishList">
+                <i v-if="inlist > -1" class="fa fa-heart" v-tooltip="'Remover de tu Lista de Deseos.'"></i>
+                <i v-else class="fa fa-heart-o" v-tooltip="'Agregar a tu Lista de Deseos.'"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -91,6 +95,7 @@
 <script type="text/javascript">
   export default {
     name: 'product',
+    props:['user'],
     data(){
       return {
         product: false,
@@ -105,9 +110,43 @@
         return parseFloat(value).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
       }
     },
+    computed:{
+      inlist(){
+        var id = this.product.id;
+        if (this.user) {
+          return this.user.wishlist.findIndex(product => product.id == id);
+        } else {
+          return -1;
+        }
+      }
+    },
     methods:{
       showImage(){
         $($('.owl-dot')[this.cart.variation]).trigger('click');
+      },
+      toWishList(){
+
+        if (this.user) {
+
+          var cond = this.inlist;
+          var vm = this;
+          axios.post('/api/wishlist',{
+            product: this.product.id
+          }).then(
+            (result) => {
+              if (cond > -1)  {
+                vm.user.wishlist.splice(cond,1);
+                toastr.error('Se ha removido el producto de su lista de deseos.','OK!');
+              } else {
+                vm.user.wishlist.push(this.product);
+                toastr.success('Se ha agregado el producto a su lista de deseos.','OK!');
+              }
+            },
+            (error) => {
+          });
+        } else {
+          toastr.error('Debes iniciar sesión para agregar a tu lista de deseos.','OK!');
+        }
       },
       addToCart(){
         var vm = this;

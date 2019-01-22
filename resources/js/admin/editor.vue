@@ -46,11 +46,20 @@
                 <label>Nombre de Producto</label>
                 <input type="text" v-model="product.name" class="form-control" required="">
               </div>
+            </div>
+            <div class="form-group row">
               <div class="col-md-6">
                 <label>Categoría de Producto</label>
                 <select class="form-control" v-model="product.category_id" required="">
                   <option value="" disabled="">- Seleccione -</option>
                   <option v-for="c in categories" :value="c.id">{{ c.name }}</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label>Categoría de Producto</label>
+                <select class="form-control" v-model="product.subcategory" :disabled="!subcategories">
+                  <option value="" disabled="">- Seleccione -</option>
+                  <option v-for="c in subcategories" :value="c">{{ c }}</option>
                 </select>
               </div>
             </div>
@@ -210,7 +219,7 @@
       return {
         product : {
           name: '',
-          category: 0,
+          category_id: 0,
           price: 0,
           discount: 0,
           summary: '',
@@ -221,6 +230,19 @@
 
         },
         categories:[]
+      }
+    },
+    computed:{
+      subcategories(){
+        var cat = this.product.category_id
+        var categories = this.categories;
+        if (cat) {
+          var selected = this.categories.find(category => category.id == cat);
+          if (selected) {
+            return selected.subs;
+          }
+        }
+        return [];
       }
     },
     methods:{

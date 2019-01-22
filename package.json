@@ -26,10 +26,13 @@
     "dependencies": {
         "moment": "^2.23.0",
         "toastr": "^2.1.4",
+        "v-tooltip": "^2.0.0-rc.33",
+        "vue-free-transform": "^1.0.11",
         "vue-holderjs": "^1.0.2",
         "vue-localstorage": "^0.6.2",
         "vue-owl-carousel": "^2.0.3",
         "vue-router": "^3.0.2",
+        "vue-tooltip": "^0.1.0",
         "vue-upload-component": "^2.8.16"
     }
 }

@@ -29,6 +29,7 @@
 <script type="text/javascript">
   export default {
     name: 'login',
+    props: ['user'],
     data(){
       return {
         email: '',
@@ -60,7 +61,9 @@
       }
     },
     mounted(){
-      
+      if (this.user) {
+        this.$router.push('/');
+      }
     }
   }
 </script>

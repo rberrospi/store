@@ -21,7 +21,8 @@
           <tbody>
             <tr v-for="item,index in cart">
               <td>
-                <img v-if="item.product.image" :src="'/storage/'+item.product.image" class="rounded img-table3">
+                <img v-if="item.product.image == 'tshirt'" src="/images/tshirt-thumb.png" class="rounded img-table3">
+                <img v-else-if="item.product.image" :src="'/storage/'+item.product.image" class="rounded img-table3">
                 <img v-else v-holder="{img:'100x100'}" class="rounded">
               </td>
               <td>

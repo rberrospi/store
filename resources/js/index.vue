@@ -37,7 +37,7 @@
                 <i class="ion-ios-gear-outline"></i>
               </a>
               <div class="dropdown-menu">
-                <a href="#" class="dropdown-item" @click.prevent="logout">Mi Cuenta</a>
+                <router-link to="/profile" class="dropdown-item">Mi Cuenta</router-link>
                 <a href="#" class="dropdown-item" @click.prevent="logout">Cerrar Sesión</a>
               </div>
             </li>
@@ -69,7 +69,7 @@
               <router-link class="nav-link" to="/join">Unete a nosotros</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Personaliza tu Polo</a>
+              <router-link class="nav-link" to="/personaliza-tu-polo">Personaliza tu Polo</router-link>
             </li>
             <li class="nav-item dropdown cart-link">
               <a class="nav-link cart-info" href="#" data-toggle="dropdown">
@@ -79,7 +79,8 @@
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#" v-for="item in cart">
                   <span class="item-picgture">
-                    <img v-if="item.product.image" :src="'/storage/'+item.product.image" class="rounded image-cart">
+                    <img v-if="item.product.image == 'tshirt'" src="/images/tshirt-thumb.png" class="rounded image-cart">
+                    <img v-else-if="item.product.image" :src="'/storage/'+item.product.image" class="rounded image-cart">
                     <img v-else v-holder="{img:'28x28', text: 'P'}" class="rounded">
                   </span>
                   <span class="item-name">{{ item.product.name }}</span>

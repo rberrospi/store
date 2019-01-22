@@ -4,9 +4,11 @@ import home from './pages/home.vue'
 import login from './pages/login.vue'
 import singup from './pages/singup.vue'
 import join from './pages/join.vue'
+import profile from './pages/profile.vue'
 import cart from './pages/cart.vue'
 import product from './pages/product.vue'
 import category from './pages/category.vue'
+import tshirt from './pages/tshirt.vue'
 
 import search from './pages/search.vue'
 
@@ -43,6 +45,16 @@ const router = new Router ({
       path: '/join',
       name: 'join',
       component: join
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: profile
+    },
+    {
+      path: '/personaliza-tu-polo',
+      name: 'tshirt',
+      component: tshirt
     },
     {
       path: '/cart',

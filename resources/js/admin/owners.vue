@@ -16,8 +16,7 @@
             </div>
             <br>
             <div class="alert alert-info">
-              El estado <div class="badge badge-warning">Solicitud</div> indica que el proveedor aún no tiene un usuario asignado 
-              por lo que no podra crear productos, y los productos que tengan no se mostraran.<br>
+              El estado <div class="badge badge-warning">Solicitud</div> indica que el proveedor aún no tiene un usuario asignado o el usuario asignado no cuenta con el rol correspondiente por lo que no podra crear productos, y los productos que tengan no se mostraran.<br>
               El estado <div class="badge badge-success">Asignado</div> indica que el proveedor tiene un usuario asigando y puede crear y mostar sus productos, pero puede ser habilitado o deshabilitado  con el boton <i class="fa fa-toggle-on"></i>
             </div>
             <br>
@@ -25,6 +24,7 @@
               <thead>
                 <tr>
                   <th>Nombre</th>
+                  <th>Usuario</th>
                   <th>Nombre Comercial</th>
                   <th>RUC</th>
                   <th>Persona de Contacto</th>
@@ -37,13 +37,18 @@
               <tbody>
                 <tr v-for="store in stores">
                   <td>{{ store.name }}</td>
+                  <td>
+                    <span v-if="store.userdata">{{ store.userdata.name }}</span>
+                    <span v-else>No Asignado</span>
+                  </td>
                   <td>{{ store.commercial_name }}</td>
                   <td>{{ store.ruc }}</td>
                   <td>{{ store.contact }}</td>
                   <td>{{ store.bank }}</td>
                   <td>{{ store.cci }}</td>
                   <td>
-                    <span class="badge badge-warning" v-if="!store.user_id">Solicitud</span>
+                    <span class="badge badge-warning" 
+                      v-if="!store.user_id || (store.userdata && store.userdata.role != 'owner')">Solicitud</span>
                     <span class="badge badge-success" v-else>Asignado</span>
                   </td>
                   <td>

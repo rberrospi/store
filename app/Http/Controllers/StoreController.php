@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Store;
+use Auth;
 
 class StoreController extends Controller{
 
@@ -25,7 +26,7 @@ class StoreController extends Controller{
   public function store(Request $request) {
 
     $error = FALSE;
-    $user = $request->user();
+    $user = Auth::guard('api')->user();
     $data = $request->all();
     $slug = str_slug($data['name']);
     $inc = -1;
@@ -40,7 +41,7 @@ class StoreController extends Controller{
 
     if (!$user || $user->role != 'admin') {
       $data['status'] = 0;
-      $data['user_id'] = 0;
+      $data['user_id'] = isset($user)? $user->id : 0;
     }
 
     $data['slug'] = $rslug;

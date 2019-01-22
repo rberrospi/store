@@ -72,6 +72,13 @@
                 <label>Imagen:</label>
                 <input type="file" ref="file">
               </div>
+              <div class="form-group">
+                <label>SubCategoría:</label>
+                <textarea type="text" class="form-control" v-model="category.subcategories"></textarea> 
+                <p class="muted">
+                  <small>Agregar subcategorias separadas por una coma.</small>
+                </p>
+              </div>
             </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn-primary">Guardar</button>
@@ -97,6 +104,7 @@
         category: {
           id: 0,
           name: '',
+          subcategories: ''
         }
       }
     },
@@ -113,6 +121,7 @@
         this.category = {
           id: 0,
           name: '', 
+          subcategories: ''
         };
       },
       submit(){
@@ -126,6 +135,7 @@
         }
 
         data.append('name',vm.category.name);
+        data.append('subcategories',vm.category.subcategories);
 
         if (vm.$refs.file.files.length) {
           data.append('image',vm.$refs.file.files[0]);

@@ -12,10 +12,16 @@ import App from './index.vue'
 import router from './router'
 import VueLocalStorage from 'vue-localstorage'
 import VueHolder from 'vue-holderjs';
-import carousel from 'vue-owl-carousel'
+import carousel from 'vue-owl-carousel';
+import VTooltip from 'v-tooltip'
+import FreeTransform from 'vue-free-transform'
+
+ 
+Vue.use(VTooltip)
 
 const VueUploadComponent = require('vue-upload-component')
 Vue.component('file-upload', VueUploadComponent)
+Vue.component('FreeTransform', FreeTransform)
 
 
 Vue.use(VueHolder);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
+use App\Wishlist;
 use App\Store;
 
 class UserController extends Controller{
@@ -23,6 +24,40 @@ class UserController extends Controller{
     return ['user' => $user];
   }
 
+  public function updateMe(Request $request) {
+
+    $user = $request->user();
+
+    return $this->update($user, $request);
+  }
+
+
+  public function wishlist(Request $request) {
+
+    $user = $request->user();
+    $product_id = $request->get('product');
+
+    $condition = Wishlist::where([
+      'user_id' => $user->id,
+      'product_id'=> $product_id
+    ])->exists();
+
+    if ($condition) {
+      Wishlist::where([
+        'user_id' => $user->id,
+        'product_id'=> $product_id
+      ])->delete();
+    } else {
+      Wishlist::create([
+        'user_id' => $user->id,
+        'product_id'=> $product_id
+      ]);
+    }
+
+    return ['error' => FALSE];
+  }
+
+
   public function store(Request $request) {
     $user = $request->user();
 
@@ -36,9 +71,17 @@ class UserController extends Controller{
 
     if (User::where('email', $data['email'])->first() ) {
       $error = 'Ya existe un usuario con ese correo.';
-    } else {
+    } 
+
+    if (User::where('username', $data['username'])->first() ) {
+      $error = 'Ya existe un usuario con ese usuario.';
+    } 
+
+
+    if (!$error) {
       User::create($data);
     }
+    
 
     return ['error' => $error];
   }
